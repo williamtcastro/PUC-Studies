@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>PEG & PAG PRA JÁ</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<body class="main spacing">
+
+  <!-- CONTENT TOP - COD PROD E PREÇO DO PROD. -->
+  <div class="container">
+        <div class="row">
+            <div class="col content-box-2">
+                <form id="formAddToCheckout" class="input-group input-group-lg" role="form">
+                    <input id="input_code_checkout" type="text" class="form-control input-no-border" placeholder="Código do produto">
+                    <!-- <span class="input-group-btn"> -->
+                        <!-- <button id="button_add_checkout" class="btn btn-lg" type="button">ENVIAR</button> -->
+                    <!-- </span> -->
+                </form>
+            </div>
+            <div class="col-lg-3 content-box text-center">
+            <div><h1>R$ 158.99</h1></div>
+          </div>
+          </div> 
+        </div>
+
+          <!-- CONTENT MIDDLE -  CUPOM FISCAL - Lista de estoque -->
+
+          <div class="col">
+              <div class="spacing">
+                  <div class="container">
+                      <div class="row box-content content-box-stock">
+                          <div class="col">
+                                <div class="text-center"><h3>Caixa</h3></div>
+                              <div class="portlet-body">
+                                  <div class="table-scrollable table-scrollable-borderless">
+                                      <table id="table_checkout" class="table table-hover table-light">
+                                          <thead>
+                                              <tr class="uppercase">
+                                                  <th>Código</th>
+                                                  <th>Produto</th>
+                                                  <th>Preço</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                              <tr>
+                                                  <td>1</td>
+                                                  <td>Mark</td>
+                                                  <td>Otto</td>
+                                              </tr>
+                                              <tr>
+                                                  <td> 2 </td>
+                                                  <td> Jacob </td>
+                                                  <td> Nilson </td>
+                                              </tr>
+                                              <!-- <tr>
+                                                  <td> 2 </td>
+                                                  <td> Jacob </td>
+                                                  <td> Nilson </td>
+                                              </tr>
+                                              <tr>
+                                                  <td> 2 </td>
+                                                  <td> Jacob </td>
+                                                  <td> Nilson </td>
+                                              </tr>
+                                              <tr>
+                                                  <td> 2 </td>
+                                                  <td> Jacob </td>
+                                                  <td> Nilson </td>
+                                              </tr>
+                                              <tr>
+                                                  <td> 2 </td>
+                                                  <td> Jacob </td>
+                                                  <td> Nilson </td>
+                                              </tr>
+                                              <tr>
+                                                  <td> 2 </td>
+                                                  <td> Jacob </td>
+                                                  <td> Nilson </td>
+                                              </tr>
+                                              <tr>
+                                                  <td> 2 </td>
+                                                  <td> Jacob </td>
+                                                  <td> Nilson </td>
+                                              </tr>
+                                              <tr>
+                                                  <td> 2 </td>
+                                                  <td> Jacob </td>
+                                                  <td> Nilson </td>
+                                              </tr>
+                                              <tr>
+                                                  <td> 2 </td>
+                                                  <td> Jacob </td>
+                                                  <td> Nilson </td>
+                                              </tr>
+                                              <tr>
+                                                  <td> 2 </td>
+                                                  <td> Jacob </td>
+                                                  <td> Nilson </td>
+                                              </tr>
+                                              <tr>
+                                                  <td> 2 </td>
+                                                  <td> Jacob </td>
+                                                  <td> Nilson </td>
+                                              </tr> -->
+                                          </tbody>
+                                      </table>
+                                  </div>
+                              </div>
+                          </div>
+    
+                          <div class="col-lg-4 secundary">
+                          <div class="text-center"><h3>Estoque</h3></div>
+                          <div class="portlet-body">
+                              <div class="table-scrollable table-scrollable-borderless">
+                                  <table  id="table_stock" class="table table-hover table-light">
+                                      <thead>
+                                          <tr class="uppercase">
+                                              <th>Produto</th>
+                                              <th>Preço</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr>
+                                              <td>1</td>
+                                              <td>Mark</td>
+                                          </tr>
+                                          <tr>
+                                              <td> 2 </td>
+                                              <td> Jacob </td>  
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+              </div>
+          </div>
+
+          <div class="col">
+              <div class="spacing main">
+                  <div class="container">
+                      <div class="row">
+                      <div class="col-lg content-box-2">
+                          <div class="col">
+
+                            <form id="formAddToStock" class="input-group input-group-lg form-body">
+                                <div class="form-inline">
+                                <div class="form-group input-space">
+                                        <input id="input_code_stock" type="text" class="form-control input-no-border input-inline" placeholder="Código do produto">  
+                                </div>
+                                    <div class="form-group input-space">
+                                            <input id="input_name_stock" type="text" class="form-control input-no-border input-inline" placeholder="Nome do produto">  
+                                    </div>
+                                </div>
+                                <div class="form-inline">
+                                <div class="form-group input-space">
+                                        <input id="input_price_stock" type="text" class="form-control input-no-border input-inline" placeholder="Preço do produto">
+                                </div>
+                                    <div class="form-group input-space">
+                                            <input id="input_quantity_stock" type="text" class="form-control input-no-border input-inline" placeholder="Quantidade do produto">  
+                                    </div>
+                                </div>
+                            </form>
+                          </div>
+                        </div>
+                      <div id="button_add_stock" class="col-lg-3 content-box-add">
+                          <div class="col text-center"><h1>Adicionar no estoque</h1></div>
+                        </div>
+                      <div id="button_finish_checkout" class="col-lg-3 content-box-finish">
+                          <div class="col text-center"><h1>Finalizar Compra</h1></div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
