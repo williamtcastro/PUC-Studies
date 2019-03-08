@@ -3,7 +3,7 @@
 int main(){
 
     int dia = 28;
-    float PI = 3.14159265359;
+    double PI = 3.14159265359;
 
     printf("Meu\tprimeiro\tprograma");
     printf("\a\a\a\a\a\n");
@@ -12,8 +12,8 @@ int main(){
     dia = 01;
     printf("Valor da variavel dia: \t%02d\n", dia);
     printf("Valor da variavel PI: \t%f\n", PI);
-    printf("Valor da variavel PI: \t%2f\n", PI);
-    printf("Valor da variavel PI (3 casas depois da virgula): \t%.03f\n", PI);
+    printf("Valor da variavel PI COMPLETO: \t%2.11f\n", PI);
+    printf("Valor da variavel PI (3 casas depois da virgula): \t%2.3f\n", PI);
     // printf("%d\n", dia);
     return(0);
 }

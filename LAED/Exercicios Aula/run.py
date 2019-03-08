@@ -14,9 +14,9 @@ while True:
 
     # COMPILANDO CODIGO
     print(("-"*lines)+ "\n" +("Compilando codigo") + "\n" + ("-"*lines) + "\n")
-    os.system("gcc -o "+name+".exe "+name+".c")
+    os.system("gcc -o "+name+" "+name+".c")
     time.sleep(3)
 
     # RODANDO O PROGRAMA
     print(("-"*lines)+ "\n" +("Rodando programa") + "\n" + ("-"*lines) + "\n")
-    os.system(name+".exe")
+    os.system(name)
