@@ -1,22 +1,43 @@
 import os
 import time
+import platform
 
-lines = 40;
+# variables
+sys = platform.system()
+lines = 40
+clear = ''
+run = ''
+
+# SYSTEM VIRYFIER
+if sys == 'Windows':
+    clear = 'cls'
+    run = ''
+if sys == 'Linux':
+    clear = 'clear'
+    run = './'
+
+# os.system(clear)
+print('Sistema identificado: {}\n'.format(sys.upper()))
 
 while True:
-    name = str(input("\n" + ("-"*lines)+ "\n" +"Nome do arquivo: "))
+
+    name = str(input("Digite o nome do arquivo: "))
     print(("-"*lines) + "\n")
 
     # LIMPANDO PROMPT
-    os.system("cls")
-
-    print("\n" +name.upper()+ ".c" + "\n")
+    os.system(clear)
+    
+    print("\nARQUIVO " +name.upper()+ ".C")
 
     # COMPILANDO CODIGO
-    print(("-"*lines)+ "\n" +("Compilando codigo") + "\n" + ("-"*lines) + "\n")
+    print(("-"*lines)+ "\n" +("COMPILANDO CODIGO") + "\n" + ("-"*lines) + "")
     os.system("gcc -o "+name+" "+name+".c")
-    time.sleep(3)
+    print("CODIGO COMPILADO" + "\n" + ("-"*lines))
 
     # RODANDO O PROGRAMA
-    print(("-"*lines)+ "\n" +("Rodando programa") + "\n" + ("-"*lines) + "\n")
-    os.system(name)
+    print("RODANDO PROGRAMA" + "\n" + ("-"*lines) + "\n")
+
+    os.system(run+name)
+
+    #PROGRAMA FINALIZADO
+    print( "\n\n"+("-"*lines)+ "\n" +("PROGRAMA FINALIZADO") + "\n" + ("-"*lines) + "\n")

@@ -13,7 +13,7 @@ int main(){
     printf("Valor da variavel dia: \t%02d\n", dia);
     printf("Valor da variavel PI: \t%f\n", PI);
     printf("Valor da variavel PI COMPLETO: \t%2.11f\n", PI);
-    printf("Valor da variavel PI (3 casas depois da virgula): \t%2.3f\n", PI);
+    printf("Valor da variavel PI (3 casas depois da virgula): \t%5.3f\n", PI); //numero antes do ponto determina a quantidade total de casas a serem printadas
     // printf("%d\n", dia);
     return(0);
 }
