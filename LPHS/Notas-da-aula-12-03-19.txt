@@ -1,0 +1,1 @@
+A definicao da funcao deve ter tipo_retorno nome_funcao(argumentos){conteudo}
