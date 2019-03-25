@@ -1,29 +1,33 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Primeiro App</title>
+    <title>Idade</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script type="text/javascript">
-    function mensagem() {
-        var nome = document.getElementById('nome').value;
-        alert(nome);
+
+    <script>
+    function calIdade() {
+        // var Idade =$("#nascimento").val();
+        var nascimento = parseInt(document.getElementById("nascimento").value);
+        var idade = 2019 - nascimento;
+        alert(idade);
     }
 
     </script>
 
     <!-- Bootstrap CSS -->
-    <div><h1>Base</h1><input type="text" placeholder="Base"></div>
-    <div><h1>Expoente</h1><input type="text" placeholder="Base"></div>
-    <div><button>Calcular</button></div>
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
 
-    <input type="text" id="nome">
-      <button onclick="mensagem();">Clique Aqui</button>
+    <div>
+            <h1>Digite ano de seu nascimento: </h1>
+            <input type="text" id="nascimento" placeholder="ano">
+            <button onclick="calIdade();">Calcular Idade</button>
+    </div>
+
+      
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
