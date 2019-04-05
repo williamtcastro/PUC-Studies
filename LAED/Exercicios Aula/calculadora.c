@@ -29,8 +29,6 @@ int main(){
     }
     if(decisao == 4){
         multiplicacao(valorA,valorB);
-    }else{
-        printf("\nOpcao nao valida por favor tentar novamente");
     }
     return(0);
 }
