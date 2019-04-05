@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Desafio 3</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script>
+    function calValor() {
+        // var num1 = $("#num1").val();
+        // var num2 = $("#num2").val();
+        // var num3 = $("#num3").val();
+        
+        var num1 = parseInt(document.getElementById("num1").value);
+        var num2 = parseInt(document.getElementById("num2").value);
+        var num3 = parseInt(document.getElementById("num3").value);
+
+        var bsqr = Math.pow(num2,2)-4 *num1 * num3;
+        var delta = Math.sqrt(bsqr);
+        var baskaraPos = (-num2 + delta) / 2*num1;
+        var baskaraNeg = (-num2 - delta) / 2*num1;
+
+        alert(baskaraPos +" X1  | X2  "+ baskaraNeg);
+    }
+
+    </script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div>
+            <h1>Digite 3 numeros e receba o resultado da equacao</h1>
+            <input type="text" id="num1" placeholder="Numero 1">
+            <input type="text" id="num2" placeholder="Numero 2">
+            <input type="text" id="num3" placeholder="Numero 3">
+            <button onclick="calValor();">Calcular Equacao</button>
+    </div>
+
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -36,27 +36,26 @@ int main(){
 }
 
 // FUNCOES
-
 short int subtracao(float valorA, float valorB){
     float valorFinal = valorA - valorB;  
     printf("\nRultado; %.3f",valorFinal);
-    return(1);
+    return(valorFinal);
 }
 
 short int adicao(float valorA, float valorB){
     float valorFinal = valorA + valorB; 
     printf("\nRultado; %.3f",valorFinal);
-    return(2);
+    return(valorFinal);
 }
 
 short int divisao(float valorA, float valorB){
     float valorFinal = valorA / valorB; 
     printf("\nRultado; %.3f",valorFinal);
-    return(3);
+    return(valorFinal);
 }
 
 short int multiplicacao(float valorA, float valorB){
     float valorFinal = valorA * valorB;  
     printf("\nRultado; %.3f",valorFinal);
-    return(4);
+    return(valorFinal);
 }
