@@ -18,25 +18,33 @@ int main(){
     scanf("%f", &valorB);
     getchar();
 
-    if(decisao == 1){
-        valorFinal = subtracao(valorA,valorB);
-    }
-    else if(decisao == 2){
-        valorFinal = adicao(valorA,valorB);
-    }
-    else if(decisao == 3){
-        if(valorB != 0){
-            valorFinal = divisao(valorA,valorB);
-        }else{
-            printf("\nOpercao Invalida!\nDivisao por Zero");
+    switch (decisao){
+        case 1:
+            valorFinal = subtracao(valorA,valorB);
+            break;
+    
+        case 2:
+            valorFinal = adicao(valorA,valorB);
+            break;
+    
+        case 3:
+            if(valorB != 0){
+                valorFinal = divisao(valorA,valorB);
+            }else{
+                printf("\nOpercao Invalida!\nDivisao por Zero");
+                return(0);
+                break;
+            }
+            break;
+    
+        case 4:
+            valorFinal = multiplicacao(valorA,valorB);
+            break;
+    
+        default:
+            printf("\nOpercao  Invalida!");
             return(0);
-        }
-    }
-    else if(decisao == 4){
-        valorFinal = multiplicacao(valorA,valorB);
-    }else{
-        printf("\nOpercao  Invalida!");
-        return(0);
+            break;
     }
     printf("\nResultado -> %.3f",valorFinal);
     return(0);
