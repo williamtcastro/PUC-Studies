@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <title>Calculadora Cientifca William de Castro</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body class="body">
+    <form name="Calculator">
+    <div class="container spacing">
+          <div class="container">
+                <div class="card info-content radius-top result">
+                        <input type="text" name="display" class="text-right margin-right result input-no-border">
+                </div>
+                <div class="card info-content text-center">
+                  <div class="container">
+
+                      <div class="row">
+                          <!-- <div type="button" value="Inv" onClick="" class="col-3 btn-function">Inv</div> -->
+                          <!-- <div type="button" value="Ans" onClick="" class="col-3 btn-function">Ans</div> -->
+                          <div type="button" value="C" onClick="Calculator.display.value = ' ' " class="col-6 btn-clear">C</div>
+                          <div type="button" value="CE" onClick="Calculator.display.value = Calculator.display.value.slice(0, -1) " class="col-6 btn-clear">CE</div>
+                      </div>
+                      <div class="row">
+                          <div type="button" value="" onClick="Calculator.display.value += eval(Math.PI) " class="col-3 btn-function">π</div>
+                          <div type="button" value="" onClick="Calculator.display.value += 'Math.sin(' " class="col-3 btn-function">sin</div>
+                          <div type="button" value="" onClick="Calculator.display.value += 'Math.cos(' " class="col-3 btn-function">cos</div>
+                          <div type="button" value="" onClick="Calculator.display.value += 'Math.tan(' " class="col-3 btn-function">tan</div>
+                      </div>
+                      <div class="row">
+                          <div type="button" value="√" onClick="Calculator.display.value += 'Math.sqrt(' " class="col-3 btn-function"><sup>2</sup>√</div>
+                          <div type="button" value="Log" onClick="Calculator.display.value += 'Math.log('" class="col-3 btn-function">Log</div>
+                          <div type="button" value="Pow" onClick="Calculator.display.value = eval(Math.pow(Calculator.display.value, 2)) " class="col-3 btn-function">x<sup>2</sup></div>
+                          <div type="button" value="Pow" onClick="Calculator.display.value = eval(Math.pow(Calculator.display.value, 3))" class="col-3 btn-function">x<sup>3</sup></div>
+                          <!-- <div type="button" value="" onClick="" class="col-3 btn-function">x!</div> -->
+                      </div>
+                      <div class="row">
+                          <div type="button" value="-" onClick="Calculator.display.value = eval(Calculator.display.value * (-1)) " class="col-3 btn-function">(-)</div>
+                          <div type="button" value="(" onClick="Calculator.display.value += '(' " class="col-3 btn-function">(</div>
+                          <div type="button" value=")" onClick="Calculator.display.value += ')' " class="col-3 btn-function">)</div>
+                          <div type="button" value="/" onClick="Calculator.display.value += '/' " class="col-3 btn-function">/</div>
+                      </div>
+                      <div class="row">
+                          <div type="button" value="1" onClick="Calculator.display.value += '1'" class="col-3 btn-number">1</div>
+                          <div type="button" value="2" onClick="Calculator.display.value += '2' " class="col-3 btn-number">2</div>
+                          <div type="button" value="3" onClick="Calculator.display.value += '3' " class="col-3 btn-number">3</div>
+                          <div type="button" value="+" onClick="Calculator.display.value += '+' " class="col-3 btn-function">+</div>
+                      </div>
+                      <div class="row">
+                          <div type="button" value="4" onClick="Calculator.display.value += '4' " class="col-3 btn-number">4</div>
+                          <div type="button" value="5" onClick="Calculator.display.value += '5' " class="col-3 btn-number">5</div>
+                          <div type="button" value="6" onClick="Calculator.display.value += '6' " class="col-3 btn-number">6</div>
+                          <div type="button" value="-" onClick="Calculator.display.value += '-' " class="col-3 btn-function">-</div>
+                      </div>
+                      <div class="row">
+                          <div type="button" value="7" onClick="Calculator.display.value += '7' " class="col-3 btn-number">7</div>
+                          <div type="button" value="8" onClick="Calculator.display.value += '8' " class="col-3 btn-number">8</div>
+                          <div type="button" value="9" onClick="Calculator.display.value += '9' " class="col-3 btn-number">9</div>
+                          <div type="button" value="*" onClick="Calculator.display.value += '*' " class="col-3 btn-function">*</div>
+                      </div>
+                      <div class="row">
+                          <div type="button" value="0" onClick="Calculator.display.value += '0' " class="col-6 btn-number">0</div>
+                          <div type="button" value="." onClick="Calculator.display.value += '.' " class="col-3 btn-number">.</div>
+                          <div type="button" value="=" onClick="Calculator.display.value =  eval(Calculator.display.value)" class="col-3 btn-result">=</div>
+                      </div>
+                    </div>
+                </div>
+          </div>
+</div>
+</form>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

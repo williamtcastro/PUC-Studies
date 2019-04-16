@@ -1,0 +1,135 @@
+
+.spacing {
+    margin-bottom:  15px;
+    margin-top:  15px;
+  }
+
+  .info-content{
+    border: 0px;
+    box-shadow: 0 30px 60px -12px rgba(50,50,93,.25),0 18px 36px -18px rgba(0,0,0,.3);
+  }
+
+  .radius-top{
+    border-radius: 7px 7px  0px 0px;
+  }
+
+  .radius-bottom{
+    border-radius: 0px 0px 15px 15px;
+  }
+
+  .body{
+    background-color: #f0f0f0;
+  }
+
+  .result{
+    background-color: #3498db;
+    color: #ffffff;
+    width: auto;
+  }
+
+  .btn-number{
+    font-size: 30px;
+    background-color: #ecf0f1;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .btn-number:hover{
+    color: #ffffff;
+    font-size: 30px;
+    background-color: #616161;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .btn-number:active{
+    color: #ffffff;
+    font-size: 30px;
+    background-color: #616161;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .btn-result{
+    color: #ffffff;
+    font-size: 30px;
+    background-color: #f44336;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .btn-result:hover{
+    color: #ffffff;
+    font-size: 30px;
+    background-color: #e53935;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .btn-result:active{
+    color: #ffffff;
+    font-size: 30px;
+    background-color: #e53935;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .btn-clear{
+    color: #ffffff;
+    font-size: 30px;
+    background-color: #bdc3c7;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .btn-clear:hover{
+    color: #ffffff;
+    font-size: 30px;
+    background-color: #f44336;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .btn-clear:active{
+    color: #ffffff;
+    font-size: 30px;
+    background-color: #f44336;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .btn-function{
+    color: #ffffff;
+    font-size: 30px;
+    background-color: #bdc3c7;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .btn-function:hover{
+    color: #212121;
+    font-size: 30px;
+    background-color: #ecf0f1;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .btn-function:active{
+    color: #212121;
+    font-size: 30px;
+    background-color: #ecf0f1;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .margin-right{
+      margin-top: 5px;
+      margin-bottom: 5px;
+      margin-right: 10px;
+  }
+
+  .input-no-border{
+    border: 0px;
+    outline: none;
+    font-size: 35px;
+  }
