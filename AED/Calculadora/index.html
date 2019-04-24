@@ -9,22 +9,22 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
   </head>
   <body class="body">
     <form name="Calculator">
     <div class="container spacing">
           <div class="container">
-                <div class="card info-content radius-top result">
-                        <input type="text" name="display" class="text-right margin-right result input-no-border">
+                <div class="card info-content radius-top resultS">
+                        <input type="text" name="display" class="text-right margin-right resultS input-no-border">
+                        <input type="text" id="result" name="result" class="text-right margin-right resultS input-no-border">
                 </div>
                 <div class="card info-content text-center">
                   <div class="container">
 
                       <div class="row">
-                          <!-- <div type="button" value="Inv" onClick="" class="col-3 btn-function">Inv</div> -->
-                          <!-- <div type="button" value="Ans" onClick="" class="col-3 btn-function">Ans</div> -->
-                          <div type="button" value="C" onClick="Calculator.display.value = ' ' " class="col-6 btn-clear">C</div>
-                          <div type="button" value="CE" onClick="Calculator.display.value = Calculator.display.value.slice(0, -1) " class="col-6 btn-clear">CE</div>
+                          <div type="button" value="C" onClick="Calculator.display.value = ' '; Calculator.result.value = ' '  " class="col-6 btn-clear">C</div>
+                          <div type="button" value="CE" onClick="Calculator.display.value = Calculator.display.value.slice(0, -1)" class="col-6 btn-clear">CE</div>
                       </div>
                       <div class="row">
                           <div type="button" value="" onClick="Calculator.display.value += eval(Math.PI) " class="col-3 btn-function">π</div>
@@ -37,7 +37,6 @@
                           <div type="button" value="Log" onClick="Calculator.display.value += 'Math.log('" class="col-3 btn-function">Log</div>
                           <div type="button" value="Pow" onClick="Calculator.display.value = eval(Math.pow(Calculator.display.value, 2)) " class="col-3 btn-function">x<sup>2</sup></div>
                           <div type="button" value="Pow" onClick="Calculator.display.value = eval(Math.pow(Calculator.display.value, 3))" class="col-3 btn-function">x<sup>3</sup></div>
-                          <!-- <div type="button" value="" onClick="" class="col-3 btn-function">x!</div> -->
                       </div>
                       <div class="row">
                           <div type="button" value="-" onClick="Calculator.display.value = eval(Calculator.display.value * (-1)) " class="col-3 btn-function">(-)</div>
@@ -66,7 +65,7 @@
                       <div class="row">
                           <div type="button" value="0" onClick="Calculator.display.value += '0' " class="col-6 btn-number">0</div>
                           <div type="button" value="." onClick="Calculator.display.value += '.' " class="col-3 btn-number">.</div>
-                          <div type="button" value="=" onClick="Calculator.display.value =  eval(Calculator.display.value)" class="col-3 btn-result">=</div>
+                          <div type="button" value="=" onClick="Calculator.result.value =  eval(Calculator.display.value)" class="col-3 btn-result">=</div>
                       </div>
                     </div>
                 </div>
