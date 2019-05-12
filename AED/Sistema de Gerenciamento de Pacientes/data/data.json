@@ -1,0 +1,85 @@
+{"sistem": {
+    "users": {
+      "0": {
+        "info": {
+          "name" : "Fernando",
+          "birth" : "12/02/1998",
+          "user_id" : "U_0"
+        },
+        "patients": [
+          {"id": "P_0"},
+          {"id": "P_1"},
+          {"id": "P_2"}
+        ]
+      },
+      "1": {
+        "info": {
+          "name" : "Sergio",
+          "age" : "12",
+          "user_id" : "U_1"
+        },
+        "patients": [
+          {"id": "P_17"},
+          {"id": "P_14"},
+          {"id": "P16"}
+        ]
+      }
+    },
+    "patients": {
+      "0": {
+        "info": {
+          "name" : "Fernando",
+          "birth" : "12/6/10",
+          "patient_id" : "P_0"
+        },
+        "visit_history": [
+          {"history_id": "H_0"},
+          {"history_id": "H_1"},
+          {"history_id": "H_2"}
+        ]
+      },
+      "1": {
+        "info": {
+          "name" : "Geraldo",
+          "birth" : "12/6/15",
+          "patient_id" : "0"
+        },
+        "visit_history": [
+          {"history_id": "H_0"},
+          {"history_id": "H_1"},
+          {"history_id": "H_2"}
+        ]
+      },
+      "2": {
+        "info": {
+          "name" : "Sergio",
+          "birth" : "12/6/15",
+          "patient_id" : "0"
+        },
+        "visit_history": [
+          {"history_id": "H_0"},
+          {"history_id": "H_1"},
+          {"history_id": "H_2"}
+        ]
+      }
+    },
+    "patient_history": {
+      "0": {
+          "patient_id" : "P_0",
+          "patient_temperature" : "12"
+      },
+      "1": {
+          "patient_id" : "P_0",
+          "patient_temperature" : "55"
+      },
+      "2": {
+          "patient_id" : "P_0",
+          "patient_temperature" : "15"
+      },
+      "3": {
+          "patient_id" : "P_0",
+          "patient_temperature" : "12"
+      }
+    }
+  }
+}
