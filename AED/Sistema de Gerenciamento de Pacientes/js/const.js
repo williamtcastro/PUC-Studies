@@ -7,10 +7,14 @@ function getData(handleData){
 }
 
 function setData(){
-    $.getJSON('/data/data.json', function(data){
-        data = data.sistem;
-        localStorage.setItem("sistem", JSON.stringify(data));
-    }); 
+    var data = localStorage.getItem("data");
+    if(data != false){
+        $.getJSON('/data/data.json', function(data){
+            data = data.sistem;
+            localStorage.setItem("data", true);
+            localStorage.setItem("sistem", JSON.stringify(data));
+        });
+    } 
 }
 
 function idfyString(content, id) {
@@ -20,26 +24,4 @@ function idfyString(content, id) {
     return content;
 }
 
-// getData(function(data){
-//     var n_data = {"2":{
-//         "info": {
-//           "username" : "geraldo",
-//           "passwd" : "202cb962ac59075b964b07152d234b70",
-//           "name" : "Geraldo",
-//           "birth" : "22/12/1975",
-//           "user_id" : "U_2"
-//         },
-//         "patients": [
-//           {"id": "P_17"},
-//           {"id": "P_14"},
-//           {"id": "P16"}
-//         ]
-//       }}
-//       console.log(data);
-//       var s_data = data.users;
-//     var f_data = Object.assign(n_data, s_data);
-//     console.log(f_data);
-//     var users = {"users": f_data};
-//     var f_users = $.extend(data, users);
-//     localStorage.setItem("sistem", JSON.stringify(f_users));
-// });
+setData();

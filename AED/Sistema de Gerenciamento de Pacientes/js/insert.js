@@ -2,7 +2,12 @@
 //DATA 10/05/2019
 //GRUPO - WILLIAM DE CASTRO | RODRIGO BRITEZ |WILLIAN AUGUSTO 
 
-function registerUser(username, passwd, name) {
+$('#registerForm').submit(function () {
+// function registerUser(username, passwd, name) {
+    var username, passwd, name;
+    username = $('#username_input').val();
+    passwd = $('#passwd_input').val();
+    name = $('#name_input').val();
     getData(function(data){
         var f_data, users, f_users, n_data, n_id=0;
         for(let i=0; data.users[i] != undefined; i++){
@@ -24,7 +29,9 @@ function registerUser(username, passwd, name) {
         f_users = $.extend(data, users);
         localStorage.setItem("sistem", JSON.stringify(f_users));
     });
-}
+// }
+    return false;
+});
 
 function createPatient(user_id,  patient_name, patient_gender, patient_birth) {
     user_id = parseInt(user_id, 10);
@@ -47,11 +54,11 @@ function createPatient(user_id,  patient_name, patient_gender, patient_birth) {
         patients = {"patients": f_data};
         f_patients = $.extend(data, patients);
         localStorage.setItem("sistem", JSON.stringify(f_patients));
-        addPatient(user_id, n_id);
+        addPatientToUser(user_id, n_id);
     });
 }
 
-function addPatient(user_id, patient_id) {
+function addPatientToUser(user_id, patient_id) {
     var f_data, patients, f_patients, n_data, user, f_user, users;
     user_id = parseInt(user_id, 10);
     patient_id = parseInt(patient_id, 10);
@@ -69,21 +76,46 @@ function addPatient(user_id, patient_id) {
         f_data = {"users": f_users};
         f_data = $.extend(data, f_data);
         localStorage.setItem("sistem", JSON.stringify(f_data));
-        console.log(f_data);
     });
 }
 
-function addUserInfo(user_id) {
-
+function createPatientHistory(patient_id) {
+    var f_data, patients_history, f_patients_history, n_data, n_id = 0;
+    getData(function(data){
+        for(let i=0; data.patient_history[i] != undefined; i++){
+            n_id++;
+        }
+        n_data = {
+            n_id : {
+                "patient_id" : "P_" + patient_id,
+                "patient_temperature" : "12",
+                "patient_status" : "STATUS",
+            }
+        }
+        n_data = idfyString(n_data, n_id);
+        f_data = Object.assign(n_data, data.patient_history);
+        patients_history = {"patient_history": f_data};
+        f_patients_history = $.extend(data, patients_history);
+        localStorage.setItem("sistem", JSON.stringify(f_patients_history));
+        addHistoryToPatient(patient_id, n_id);
+    });
 }
 
-function createPatientHistory(user_id, patient_id) {
-
+function addHistoryToPatient(patient_id, patient_history_id){
+    var f_data, patient, f_patient, n_data;
+    getData(function(data){
+        n_data = { n_id : {"history_id" : "H_"+patient_history_id}};
+        n_data = idfyString(n_data, patient_history_id);
+        f_data = Object.assign(n_data, data.patients[patient_id].visit_history);
+        patients_history = {"visit_history": f_data};
+        patient = data.patients[patient_id];
+        // f_patient = { n_id : { }}
+        f_patients_history = $.extend(patient, patients_history);
+        f_patient = { n_id : f_patients_history };
+        f_patient = idfyString(f_patient, patient_id);
+        f_patients_history = $.extend(data.patients, f_patient);
+        f_patients_history = {"patients": f_patients_history};
+        f_patients_history = $.extend(data, f_patients_history);
+        localStorage.setItem("sistem", JSON.stringify(f_patients_history));
+    });
 }
-
-function patientHistoryData(patient_id, patient_history_id) {
-
-}
-
-addPatient(0, 3);
-// setData()

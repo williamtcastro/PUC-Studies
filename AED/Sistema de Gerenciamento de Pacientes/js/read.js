@@ -2,7 +2,11 @@
 //DATA 10/05/2019
 //GRUPO - WILLIAM DE CASTRO | RODRIGO BRITEZ |WILLIAN AUGUSTO 
 
-function login(username, passwd) {
+// function login(username, passwd) {
+$('#loginForm').submit(function () {
+    var username, passwd;
+    username = $('#username_input').val();
+    passwd = $('#passwd_input').val();
     getData(function(data){
         var users = data.users;
         var user_id;
@@ -10,12 +14,13 @@ function login(username, passwd) {
             if((username == users[key].info.username) && (MD5(passwd) == users[key].info.passwd)){
                 user_id = users[key].info.user_id;
                 user_id= user_id.replace("U_", "");
-                console.log("LOGADO");
+                // console.log(user_id);
                 userData(user_id);
             }
         }
     });
-}
+    return false;
+});
 
 function logoff(){
 }
@@ -28,7 +33,7 @@ function userData(user_id) {
         var name = info.name;
         var birth = info.birth;
         var username = info.username;
-        // window.location.href="http://java67.blogspot.com"; 
+        console.log(name);
     });
 }
 
@@ -40,7 +45,6 @@ function patientListing(user_id) {
         patients.forEach(function(value){ // as weel as key
             var patient = value.id;
             patient = patient.replace("P_", "");
-            console.log(patient);
         });
     });
 }
@@ -51,7 +55,6 @@ function patientData(patient_id){
         var patient = data.patients[patient_id].info;
         var name = patient.name;
         var birth = patient.birth;
-        console.log(name);
     });
 }
 
@@ -63,7 +66,6 @@ function patientHistory(patient_id) {
         history.forEach(function(value){
             var h_item = value.history_id;
             h_item = h_item.replace("H_", " ");
-            console.log(h_item);
             //HANDLE THE INTEMS IN PATIENTS
         });
     });

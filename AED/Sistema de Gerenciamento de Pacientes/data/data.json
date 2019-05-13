@@ -2,6 +2,8 @@
     "users": {
       "0": {
         "info": {
+          "username" : "fernando",
+          "passwd" : "ff64a1c43498d955147518733ac88c7c",
           "name" : "Fernando",
           "birth" : "12/02/1998",
           "user_id" : "U_0"
@@ -14,6 +16,8 @@
       },
       "1": {
         "info": {
+          "username" : "sergio",
+          "passwd" : "8e6f6f815b50f474cf0dc22d4f400725",
           "name" : "Sergio",
           "age" : "12",
           "user_id" : "U_1"
