@@ -28,7 +28,7 @@ int main(){
 }
 
 short int cState(char c){
-    char vogais[5] = {'a', 'e', 'i', 'o', 'u'}
+    char vogais[5] = {'a', 'e', 'i', 'o', 'u'};
     for( int i=0; i<5; i++){
         if(c == vogais[i]){
             return(1);
