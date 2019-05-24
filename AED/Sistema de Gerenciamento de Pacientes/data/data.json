@@ -1,89 +1,160 @@
-{"sistem": {
-    "users": {
-      "0": {
-        "info": {
-          "username" : "fernando",
-          "passwd" : "ff64a1c43498d955147518733ac88c7c",
-          "name" : "Fernando",
-          "birth" : "12/02/1998",
-          "user_id" : "U_0"
-        },
-        "patients": [
-          {"id": "P_0"},
-          {"id": "P_1"},
-          {"id": "P_2"}
-        ]
+{
+  "users": {
+    "0": {
+      "info": {
+        "username": "fernando",
+        "passwd": "ff64a1c43498d955147518733ac88c7c",
+        "name": "Fernando",
+        "birth": "12/02/1998",
+        "user_id": "U_0"
       },
-      "1": {
-        "info": {
-          "username" : "sergio",
-          "passwd" : "8e6f6f815b50f474cf0dc22d4f400725",
-          "name" : "Sergio",
-          "age" : "12",
-          "user_id" : "U_1"
+      "patients": [
+        {
+          "id": "P_0"
         },
-        "patients": [
-          {"id": "P_17"},
-          {"id": "P_14"},
-          {"id": "P16"}
-        ]
-      }
+        {
+          "id": "P_1"
+        },
+        {
+          "id": "P_2"
+        }
+      ]
     },
-    "patients": {
-      "0": {
-        "info": {
-          "name" : "Fernando",
-          "birth" : "12/6/10",
-          "patient_id" : "P_0"
-        },
-        "visit_history": [
-          {"history_id": "H_0"},
-          {"history_id": "H_1"},
-          {"history_id": "H_2"}
-        ]
+    "1": {
+      "info": {
+        "username": "sergio",
+        "passwd": "8e6f6f815b50f474cf0dc22d4f400725",
+        "name": "Sergio",
+        "age": "12",
+        "user_id": "U_1"
       },
-      "1": {
-        "info": {
-          "name" : "Geraldo",
-          "birth" : "12/6/15",
-          "patient_id" : "0"
+      "patients": [
+        {
+          "id": "P_0"
         },
-        "visit_history": [
-          {"history_id": "H_0"},
-          {"history_id": "H_1"},
-          {"history_id": "H_2"}
-        ]
-      },
-      "2": {
-        "info": {
-          "name" : "Sergio",
-          "birth" : "12/6/15",
-          "patient_id" : "0"
+        {
+          "id": "P_1"
         },
-        "visit_history": [
-          {"history_id": "H_0"},
-          {"history_id": "H_1"},
-          {"history_id": "H_2"}
-        ]
-      }
+        {
+          "id": "P_2"
+        }
+      ]
     },
-    "patient_history": {
-      "0": {
-          "patient_id" : "P_0",
-          "patient_temperature" : "12"
+    "2": {
+      "info": {
+        "username": "william",
+        "passwd": "e8d95a51f3af4a3b134bf6bb680a213a",
+        "name": "William de Castro",
+        "email": "williamtdcastro@gmail.com",
+        "birth": "1998-02-21",
+        "user_id": "U_2"
       },
-      "1": {
-          "patient_id" : "P_0",
-          "patient_temperature" : "55"
-      },
-      "2": {
-          "patient_id" : "P_0",
-          "patient_temperature" : "15"
-      },
-      "3": {
-          "patient_id" : "P_0",
-          "patient_temperature" : "12"
+      "patients": {
+        "3": {
+          "id": "P_3"
+        },
+        "4": {
+          "id": "P_4"
+        }
       }
+    }
+  },
+  "patients": {
+    "0": {
+      "info": {
+        "name": "Fernando",
+        "birth": "12/6/10",
+        "patient_id": "P_0"
+      },
+      "visit_history": [
+        {
+          "history_id": "H_0"
+        },
+        {
+          "history_id": "H_1"
+        },
+        {
+          "history_id": "H_2"
+        }
+      ]
+    },
+    "1": {
+      "info": {
+        "name": "Geraldo",
+        "birth": "12/6/15",
+        "patient_id": "0"
+      },
+      "visit_history": [
+        {
+          "history_id": "H_0"
+        },
+        {
+          "history_id": "H_1"
+        },
+        {
+          "history_id": "H_2"
+        }
+      ]
+    },
+    "2": {
+      "info": {
+        "name": "Sergio",
+        "birth": "12/6/15",
+        "patient_id": "0"
+      },
+      "visit_history": [
+        {
+          "history_id": "H_0"
+        },
+        {
+          "history_id": "H_1"
+        },
+        {
+          "history_id": "H_2"
+        }
+      ]
+    },
+    "3": {
+      "info": {
+        "name": "Veri",
+        "birth": "1998-02-02",
+        "gender": "Feminino",
+        "phone": "veri",
+        "address": "dwdwdwdwwd",
+        "email": "wi@g.com",
+        "patient_id": "P_3"
+      },
+      "visit_history": []
+    },
+    "4": {
+      "info": {
+        "name": "Lalo",
+        "birth": "2019-05-20",
+        "gender": "Masculino",
+        "phone": "55555555555",
+        "address": "Rua Sei la o que",
+        "email": "lalo@g.com",
+        "patient_id": "P_4"
+      },
+      "visit_history": []
+    }
+  },
+  "patient_history": {
+    "0": {
+      "patient_id": "P_0",
+      "patient_temperature": "12"
+    },
+    "1": {
+      "patient_id": "P_0",
+      "patient_temperature": "55"
+    },
+    "2": {
+      "patient_id": "P_0",
+      "patient_temperature": "15"
+    },
+    "3": {
+      "patient_id": "P_0",
+      "patient_temperature": "12"
     }
   }
 }

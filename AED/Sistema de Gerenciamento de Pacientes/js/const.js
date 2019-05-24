@@ -8,10 +8,11 @@ function getData(handleData){
 
 function setData(){
     var data = localStorage.getItem("data");
-    if(data != false){
+    if(data == null){
         $.getJSON('/data/data.json', function(data){
             data = data.sistem;
             localStorage.setItem("data", true);
+            localStorage.setItem("logged", 0);
             localStorage.setItem("sistem", JSON.stringify(data));
         });
     } 

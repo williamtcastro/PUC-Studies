@@ -1,9 +1,17 @@
 .box-log{
     border-radius: 7px;
-    padding: 10px;
-    margin: 100px; 
+    padding: 30px;
+    margin-top: 2vh;
+    margin-bottom: 2vh; 
     background-color: #ffffff;
     max-width: 500px;
+}
+
+.box-content{
+    border-radius: 7px;
+    padding: 30px;
+    margin-top: 10vh; 
+    background-color: #ffffff;
 }
 
 .center {
@@ -13,7 +21,7 @@
 }
 
 .img-logo{
-    padding: 5px;
+    padding: 50px;
     width: 100%;
     height: auto;
 }
@@ -26,11 +34,14 @@
     font-size: 21px;
     /* background-image: linear-gradient( 90deg, #CE9FFC 10%, #7367F0 100%); */
     background-color: #CE9FFC;
+    box-shadow: 0 30px 60px -12px rgba(50,50,93,.25),0 18px 36px -18px rgba(0,0,0,.3),0 -12px 36px -8px rgba(0,0,0,.025);
     outline: none;
 }
 
 .btn-primary:hover{
-    background-color: #7367F0;
+    background-color: #CE9FFC;
+    background-image: linear-gradient( 90deg, #CE9FFC 10%, #7367F0 100%);
+    box-shadow: none;
 }
 
 .btn-secondary{
@@ -47,10 +58,61 @@
 
 .btn-secondary:hover{
     background-color:rgba(206, 159, 252, 1);
+    box-shadow: 0 30px 60px -12px rgba(50,50,93,.25),0 18px 36px -18px rgba(0,0,0,.3),0 -12px 36px -8px rgba(0,0,0,.025);
+}
+
+.btn-outline{
+    border: 3px solid;
+    border-radius: 7px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 17px;
+    background-color: #ffffff;
+    color: #CE9FFC;
+    outline: none;
+    box-shadow: none;
+}
+
+.btn-outline:hover{
+    border: none;
+    color: #f1f1f1;
+    /* background-image: linear-gradient( 90deg, #CE9FFC 10%, #7367F0 100%); */
+    background-color: #7367F0;
+}
+
+.btn-sm{
+    margin-left:5px;
+    border: 2px solid;
+    border-radius: 7px;
+    font-weight: bold;
+    font-size: 12px;
+    background-color: #CE9FFC;
+    color: #ffffff;
+}
+
+.btn-sm:hover{
+    border: 2px solid;
+    color: #ffffff;
+    background-color: #7367F0;
+}
+
+input{
+    border-radius: 7px;
+    /* box-shadow: 0 1px 0 rgba(33,33,33,.3); */
+    outline:none;
+}
+
+.text-bold{
+    font-weight: bold;
 }
 
 @media only screen and (max-width: 600px){
     .box-log{
         max-width: 300px;
+    }
+
+    .box-content{
+        margin-top: 70px; 
+        max-width: 400px;
     }
 }

@@ -21,24 +21,17 @@ body{
 }
 
 .input-no-border{
-    border: 0px;
+    border: 7px;
     outline: none;
     font-weight: bold;
     font-size: 21px;
+    background-color: #f8f8f8;
 }
 
-input{
-    border-radius: 0px;
-    box-shadow: 0 1px 0 rgba(33,33,33,.3);
-    outline:none;
+.input-no-border:hover{
+    box-shadow: 0 30px 60px -12px rgba(50,50,93,.25),0 18px 36px -18px rgba(0,0,0,.3),0 -12px 36px -8px rgba(0,0,0,.025);
 }
 
-input:focus{
-    border-radius: 0px;
-    box-shadow: 0 1px 0 rgba(33,33,33,.3);
-}
-
-input:active{
-    border-radius: 0px;
-    box-shadow: 0 1px 0 rgba(33,33,33,.3);
+.input-no-border:active{
+    box-shadow: 0 30px 60px -12px rgba(50,50,93,.25),0 18px 36px -18px rgba(0,0,0,.3),0 -12px 36px -8px rgba(0,0,0,.025);
 }

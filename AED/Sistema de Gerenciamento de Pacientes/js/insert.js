@@ -3,38 +3,56 @@
 //GRUPO - WILLIAM DE CASTRO | RODRIGO BRITEZ |WILLIAN AUGUSTO 
 
 $('#registerForm').submit(function () {
-// function registerUser(username, passwd, name) {
-    var username, passwd, name;
+    var username, passwd, name, birth, passwd_confirm;
     username = $('#username_input').val();
     passwd = $('#passwd_input').val();
+    email = $('#email_input').val();
     name = $('#name_input').val();
-    getData(function(data){
-        var f_data, users, f_users, n_data, n_id=0;
-        for(let i=0; data.users[i] != undefined; i++){
-            n_id++;
-        }
-        n_data = { n_id :{
-            "info": {
-              "username" : username,
-              "passwd" : MD5(passwd),
-              "name" : name,
-              "birth" : "",
-              "user_id" : "U_"+n_id
-            },
-            "patients": []
-        }}
-        n_data = idfyString(n_data, n_id);
-        f_data = Object.assign(n_data, data.users);
-        users = {"users": f_data};
-        f_users = $.extend(data, users);
-        localStorage.setItem("sistem", JSON.stringify(f_users));
-    });
-// }
+    birth = $('#birth_date').val();
+    passwd_confirm = $('#passwd_input_confirm').val();
+    if(MD5(passwd) === MD5(passwd_confirm)){
+        getData(function(data){
+            var f_data, users, f_users, n_data, n_id=0;
+            for(let i=0; data.users[i] != undefined; i++){
+                n_id++;
+            }
+            n_data = { n_id :{
+                "info": {
+                  "username" : username,
+                  "passwd" : MD5(passwd),
+                  "name" : name,
+                  "email" : email,
+                  "birth" : birth,
+                  "user_id" : "U_"+n_id
+                },
+                "patients": []
+            }}
+            n_data = idfyString(n_data, n_id);
+            f_data = Object.assign(n_data, data.users);
+            users = {"users": f_data};
+            f_users = $.extend(data, users);
+            localStorage.setItem("sistem", JSON.stringify(f_users));
+            localStorage.setItem("logged", 1);
+            changePage("main.html", n_id);
+        });
+    }else{
+        alert("Senhas não correspondem");
+    }
     return false;
 });
 
-function createPatient(user_id,  patient_name, patient_gender, patient_birth) {
-    user_id = parseInt(user_id, 10);
+$('#newPatientForm').submit(function(){
+    var patient_name, patient_phone, patient_email, patient_birth, patient_address, patient_gender;
+    patient_name = $('#patient_name').val();
+    patient_phone = $('#patient_phone').val();
+    patient_email = $('#patient_email').val();
+    patient_birth = $('#patient_birth').val();
+    patient_address = $('#patient_address').val();
+    patient_gender = $('#patient_gender').val();
+    var user, user_id;
+    user = window.localStorage.getItem("user");
+    user = JSON.parse(user);
+    user_id = user.id;
     getData(function(data){
         var f_data, patients, f_patients, n_data, n_id=0;
         for(let i=0; data.patients[i] != undefined; i++){
@@ -45,6 +63,9 @@ function createPatient(user_id,  patient_name, patient_gender, patient_birth) {
               "name" : patient_name,
               "birth" : patient_birth,
               "gender" : patient_gender,
+              "phone" : patient_phone,
+              "address" : patient_address,
+              "email" : patient_email,
               "patient_id" : "P_"+ n_id
             },
             "visit_history": []
@@ -56,7 +77,16 @@ function createPatient(user_id,  patient_name, patient_gender, patient_birth) {
         localStorage.setItem("sistem", JSON.stringify(f_patients));
         addPatientToUser(user_id, n_id);
     });
-}
+    return false;
+});
+
+$('#newPatient').click(function(){
+    var user;
+    user = window.localStorage.getItem("user");
+    user = JSON.parse(user);
+    user = user.id;
+    changePage("newpatients.html", user);
+});
 
 function addPatientToUser(user_id, patient_id) {
     var f_data, patients, f_patients, n_data, user, f_user, users;
@@ -76,6 +106,7 @@ function addPatientToUser(user_id, patient_id) {
         f_data = {"users": f_users};
         f_data = $.extend(data, f_data);
         localStorage.setItem("sistem", JSON.stringify(f_data));
+        changePage("patients.html", user_id);
     });
 }
 
