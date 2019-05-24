@@ -2,15 +2,27 @@ var MD5 = function(d){result = M(V(Y(X(d),8*d.length)));return result.toLowerCas
 
 function getData(handleData){
     var data = localStorage.getItem("sistem");
+
+    // ENCRYPTED VERSION OF THE DB
+    // var decrypted = CryptoJS.AES.decrypt(data, "PUCMINAS");
+    // decrypted = decrypted.toString(CryptoJS.enc.Utf8);
+    // data = JSON.parse(decrypted);
+    // handleData(data); 
+
     data = JSON.parse(data);
     handleData(data); 
 }
 
 function setData(){
     var data = localStorage.getItem("data");
-    if(data == null){
+    if(data == undefined){
+
+        //  ENCRYPTED VERSION OF THE DB
+        // $.get('/data/data.txt',function(data){
+        //     localStorage.setItem("sistem", data);
+        // });
+        
         $.getJSON('/data/data.json', function(data){
-            data = data.sistem;
             localStorage.setItem("data", true);
             localStorage.setItem("logged", 0);
             localStorage.setItem("sistem", JSON.stringify(data));
@@ -23,6 +35,50 @@ function idfyString(content, id) {
     content = content.replace('"n_id"', '"'+id.toString()+'"' );
     content = JSON.parse(content);
     return content;
+}
+
+function downloadDataBase() {
+    var element = document.createElement('a');
+    //AES + MD5
+    var encrypted = CryptoJS.AES.encrypt(window.localStorage.getItem("sistem"), "PUCMINAS");
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(encrypted));
+    element.setAttribute('download', "bd.txt");
+  
+    element.style.display = 'none';
+    document.body.appendChild(element);
+  
+    element.click();
+    document.body.removeChild(element);
+  }
+
+  function uploadDataBase(){
+    var data = document.getElementById("myDataBase").files[0];
+    if(data){
+        var reader = new FileReader();
+        reader.readAsText(data, "UTF-8");
+        reader.onload = function (evt) {
+            //AES + MD5
+            var decrypted = CryptoJS.AES.decrypt(evt.target.result, "PUCMINAS");
+            decrypted = decrypted.toString(CryptoJS.enc.Utf8);
+            window.localStorage.setItem("sistem", decrypted);
+            alert("Banco de dados importado com sucesso!");
+        }
+    }else{
+        alert("Nenhum arquivo enviado");
+    }
+    return false;
+  }
+
+function decryptEncodeDb(data){
+    var decrypted = CryptoJS.AES.decrypt(data, "PUCMINAS");
+    decrypted = decrypted.toString(CryptoJS.enc.Utf8);
+    return decrypted;
+}
+
+function encryptToSave(data){
+    data = JSON.stringify(data);
+    var encrypted = CryptoJS.AES.encrypt(data, "PUCMINAS");
+    return encrypted;
 }
 
 setData();

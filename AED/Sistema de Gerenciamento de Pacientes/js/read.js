@@ -38,6 +38,11 @@ function userData() {
         var name = info.name;
         // var username = info.username;
         $('#name').html(name);
+        $('#user_id').val(user_id);
+        $('#username').val(info.username);
+        $('#user_birth').val(info.birth);
+        $('#user_email').val(info.email);
+        $('#user_phone').val(info.phone);
     });
 }
 
@@ -64,8 +69,9 @@ function patientListing() {
                 if ( $('#listing-patients').length != 0) {    
                     set_function = "changePage('history.html',"+patient_id+")";
                     set_function2 = "changePage('newhistory.html',"+patient_id+")";
+                    set_function3 = "changePage('patientprofile.html',"+patient_id+")";
                     li.className = "list-group-item text-bold";
-                    li.innerHTML = name+'<button class="pull-right btn-sm" onclick="'+set_function2+'">Adicionar Visita</button><button class="pull-right btn-sm" onclick="'+set_function+'">Ver Visitas</button>';
+                    li.innerHTML = name+'<button class="pull-right btn-sm" onclick="'+set_function2+'">Adicionar Visita</button><button class="pull-right btn-sm" onclick="'+set_function+'">Ver Visitas</button><button class="pull-right btn-sm" onclick="'+set_function3+'">Ver Paciente</button>';
                     li.id = patient_id;
                     document.getElementById('listing-patients').appendChild(li);
                 }else{

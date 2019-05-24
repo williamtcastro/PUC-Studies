@@ -3,7 +3,7 @@
 //GRUPO - WILLIAM DE CASTRO | RODRIGO BRITEZ |WILLIAN AUGUSTO 
 
 $('#seeHistory').click(function(){
-    var id = $('#seeHistory').val;
+    var id = $('#seeHistory').val();
     changePage("history.html", id);
 });
 
@@ -37,6 +37,9 @@ $('#registerForm').submit(function () {
             f_data = Object.assign(n_data, data.users);
             users = {"users": f_data};
             f_users = $.extend(data, users);
+            // ENCRYPTED VERSION
+            // f_users = encryptToSave(f_users);
+            // localStorage.setItem("sistem", f_users);
             localStorage.setItem("sistem", JSON.stringify(f_users));
             localStorage.setItem("logged", 1);
             changePage("main.html", n_id);
@@ -80,6 +83,9 @@ $('#newPatientForm').submit(function(){
         f_data = Object.assign(n_data, data.patients);
         patients = {"patients": f_data};
         f_patients = $.extend(data, patients);
+        // ENCRYPTED VERSION
+        // f_patients = encryptToSave(f_patients);
+        // localStorage.setItem("sistem", f_patients);
         localStorage.setItem("sistem", JSON.stringify(f_patients));
         addPatientToUser(user_id, n_id);
     });
@@ -111,6 +117,9 @@ function addPatientToUser(user_id, patient_id) {
         f_users = $.extend(users, f_user);
         f_data = {"users": f_users};
         f_data = $.extend(data, f_data);
+        // ENCRYPTED VERSION
+        // f_data = encryptToSave(f_data);
+        // localStorage.setItem("sistem", f_data);
         localStorage.setItem("sistem", JSON.stringify(f_data));
         changePage("patients.html", user_id);
     });
@@ -133,6 +142,9 @@ function createPatientHistory(patient_id) {
         f_data = Object.assign(n_data, data.patient_history);
         patients_history = {"patient_history": f_data};
         f_patients_history = $.extend(data, patients_history);
+        // ENCRYPTED VERSION
+        // f_patients_history = encryptToSave(f_patients_history);
+        // localStorage.setItem("sistem", f_patients_history);
         localStorage.setItem("sistem", JSON.stringify(f_patients_history));
         addHistoryToPatient(patient_id, n_id);
     });
@@ -153,6 +165,9 @@ function addHistoryToPatient(patient_id, patient_history_id){
         f_patients_history = $.extend(data.patients, f_patient);
         f_patients_history = {"patients": f_patients_history};
         f_patients_history = $.extend(data, f_patients_history);
+        // ENCRYPTED VERSION
+        // f_patients_history = encryptToSave(f_patients_history);
+        // localStorage.setItem("sistem", f_patients_history);
         localStorage.setItem("sistem", JSON.stringify(f_patients_history));
     });
 }

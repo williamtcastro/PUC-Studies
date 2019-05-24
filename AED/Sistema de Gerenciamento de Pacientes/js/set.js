@@ -71,6 +71,22 @@ function patientProfile(){
     }
 }
 
+function userProfile(){
+    var logged = window.localStorage.getItem("logged");
+    if(logged == 1){
+        userData();
+    }else{
+        changePage("index.html", null);
+    }
+}
+
+function verify(){
+    var logged = window.localStorage.getItem("logged");
+    if(logged != 1){
+        changePage("index.html", null);
+    }
+}
+
 function patientHistory(){
     var logged = window.localStorage.getItem("logged");
     if(logged == 1){

@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="css/custom.css">
 </head>
 
-<body onload="mainPage();">
+<body onload="userProfile();">
 
   <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
     <a class="navbar-brand" href="main.html">SysMed</a>
@@ -52,17 +52,48 @@
 
   <div class="container info-content box-content center">
       <div class="row">
-        <div class="col-9">Bem vindo, <H1><a id="name"></a></h1></div>
-          <div class="col-3">
-              <button class="btn btn-outline btn-block" id="newPatient">Adicionar Paciente</button>
-          </div>
+        <div class="col-9">Perfil de <h2 id="name"></h2></div>
         </div>
         <hr>
-        <h3>Pacientes</h3>
+        <div class="container">
+
+            <label for="userid">ID</label>
+            <input type="text" id="user_id" class="form-control input-no-border" readonly>
+            <br>
+            <label for="user_gender">Usuário</label>
+            <input type="text" id="username" class="form-control input-no-border" readonly>
+           <br>
+            <!-- <label for="user_phone">Telefone</label>
+            <input type="text" id="user_phone" class="form-control input-no-border" readonly>
+            <br> -->
+            <label for="user_email">E-mail</label>
+            <input type="text" id="user_email" class="form-control input-no-border" readonly>
+            <br>
+            <!-- <label for="user_address">Endereço</label>
+            <input type="text" id="user_address" class="form-control input-no-border" readonly>
+            <br> -->
+            <label for="user_birth">Data de Nascimento</label>
+            <input type="date" id="user_birth" class="form-control input-no-border" readonly>
+
+        </div>
         <br>
-        <div class="container" id="listing-patientsp-container">
-            <ul id="listing-patients" class="list-group list-group-flush list-group-item-action">
-            </ul>
+        <hr>
+        <div class="container">
+                        <button class="btn btn-block btn-danger" onclick="downloadDataBase();">Exportar Banco de Dados</button>
+        </div>
+        <hr>
+        <div class="container">
+               <div class="row">
+                  <div class="col-6">
+                      <div class="upload-btn-wrapper btn btn-primary btn-block">
+                          <button class="btn bold">Upload arquivo</button>
+                          <input type="file" id="myDataBase" />
+                        </div>
+                      </div>
+                        <div class="col-6">
+                            <button class="btn btn-danger btn-block" onclick="uploadDataBase();">Enviar Banco de Dados</button>
+                        </div>
+               </div>
         </div>
       </div>
 
@@ -84,7 +115,7 @@
   <script src="/js/search.js"></script>
   <script src="/js/jquery.maskedinput.js"></script>
   <script src="/js/aes.js"></script>
-  
+  <!-- <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script> -->
 </body>
 
 </html>
