@@ -4,30 +4,32 @@ function getData(handleData){
     var data = localStorage.getItem("sistem");
 
     // ENCRYPTED VERSION OF THE DB
-    // var decrypted = CryptoJS.AES.decrypt(data, "PUCMINAS");
-    // decrypted = decrypted.toString(CryptoJS.enc.Utf8);
-    // data = JSON.parse(decrypted);
-    // handleData(data); 
-
-    data = JSON.parse(data);
+    var decrypted = CryptoJS.AES.decrypt(data, "PUCMINAS");
+    decrypted = decrypted.toString(CryptoJS.enc.Utf8);
+    data = JSON.parse(decrypted);
     handleData(data); 
+
+    // data = JSON.parse(data);
+    // handleData(data); 
 }
 
 function setData(){
-    var data = localStorage.getItem("data");
-    if(data == undefined){
+        var dataStorage = localStorage.getItem("data");
 
         //  ENCRYPTED VERSION OF THE DB
-        // $.get('/data/data.txt',function(data){
-        //     localStorage.setItem("sistem", data);
-        // });
-        
-        $.getJSON('/data/data.json', function(data){
-            localStorage.setItem("data", true);
-            localStorage.setItem("logged", 0);
-            localStorage.setItem("sistem", JSON.stringify(data));
+        $.get('/data/data.txt',function(data){
+            if(!dataStorage){
+                localStorage.setItem("sistem", data);
+                localStorage.setItem("data", true);
+            }
         });
-    } 
+
+
+    // $.getJSON('/data/data.json', function(data){
+    //     localStorage.setItem("data", true);
+    //     localStorage.setItem("logged", 0);
+    //     localStorage.setItem("sistem", JSON.stringify(data));
+    // }); 
 }
 
 function idfyString(content, id) {
