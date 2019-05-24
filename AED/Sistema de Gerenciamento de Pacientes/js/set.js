@@ -33,6 +33,18 @@ function changePage(direction, id) {
             window.localStorage.setItem("patient", JSON.stringify(p_data));
             window.location.href = direction;
             break;
+
+        case "history.html":
+            var p_data = { "p" : id};
+            window.localStorage.setItem("patient", JSON.stringify(p_data));
+            window.location.href = direction;
+            break;
+
+        case "newhistory.html":
+            var p_data = { "p" : id};
+            window.localStorage.setItem("patient", JSON.stringify(p_data));
+            window.location.href = direction;
+            break;
     
         default:
         alert("NOP");
@@ -54,6 +66,15 @@ function patientProfile(){
     var logged = window.localStorage.getItem("logged");
     if(logged == 1){
         patientData();
+    }else{
+        changePage("index.html", null);
+    }
+}
+
+function patientHistory(){
+    var logged = window.localStorage.getItem("logged");
+    if(logged == 1){
+        patientHistory();
     }else{
         changePage("index.html", null);
     }

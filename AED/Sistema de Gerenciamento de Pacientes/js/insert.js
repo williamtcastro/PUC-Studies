@@ -2,6 +2,12 @@
 //DATA 10/05/2019
 //GRUPO - WILLIAM DE CASTRO | RODRIGO BRITEZ |WILLIAN AUGUSTO 
 
+$('#seeHistory').click(function(){
+    var id = $('#seeHistory').val;
+    changePage("history.html", id);
+});
+
+
 $('#registerForm').submit(function () {
     var username, passwd, name, birth, passwd_confirm;
     username = $('#username_input').val();

@@ -51,31 +51,45 @@ function patientListing() {
         var user_d, patients;
         user_d = data.users[user_id];
         patients = user_d.patients;
-        Object.keys(patients).forEach(function(value){ // as weel as key
-            var patient, patient_id, li, name, set_function, set_function2;
-            patient_id = patients[value].id;
-            patient_id = patient_id.replace("P_", "");
-            getData(function(data){
-                patient = data.patients[patient_id].info;
-                name = patient.name;
+        if(patients.length != 0){
+            Object.keys(patients).forEach(function(value){ // as weel as key
+                var patient, patient_id, li, name, set_function, set_function2;
+                patient_id = patients[value].id;
+                patient_id = patient_id.replace("P_", "");
+                getData(function(data){
+                    patient = data.patients[patient_id].info;
+                    name = patient.name;
+                });
+                li = document.createElement("li");
+                if ( $('#listing-patients').length != 0) {    
+                    set_function = "changePage('history.html',"+patient_id+")";
+                    set_function2 = "changePage('newhistory.html',"+patient_id+")";
+                    li.className = "list-group-item text-bold";
+                    li.innerHTML = name+'<button class="pull-right btn-sm" onclick="'+set_function2+'">Adicionar Visita</button><button class="pull-right btn-sm" onclick="'+set_function+'">Ver Visitas</button>';
+                    li.id = patient_id;
+                    document.getElementById('listing-patients').appendChild(li);
+                }else{
+                    set_function = "changePage('patientprofile.html',"+patient_id+")";
+                    set_function2 = "changePage('newhistory.html',"+patient_id+")";
+                    li.className = "list-group-item text-bold";
+                    li.innerHTML = name+'<button class="pull-right btn-sm" onclick="'+set_function2+'">Adicionar Visita</button><button class="pull-right btn-sm" onclick="'+set_function+'">Ver Paciente</button>';
+                    li.id = patient_id;
+                    document.getElementById('listing-patients-user').appendChild(li);
+                }
             });
-            li = document.createElement("li");
-            if ( $('#listing-patients').length != 0) {    
-                set_function = "changePage('patientprofile.html',"+patient_id+")";
-                set_function2 = "changePage('patientprofile.html',"+patient_id+")";
+        }else{
+            if($('#listing-patients').length !=0){
+                var li = document.createElement("li");
                 li.className = "list-group-item text-bold";
-                li.innerHTML = name+'<button class="pull-right btn-sm" onclick="'+set_function2+'">Adicionar Visita</button><button class="pull-right btn-sm" onclick="'+set_function+'">Ver Visitas</button>';
-                li.id = patient_id;
+                li.innerHTML = "Não possui pacientes cadastrados";
                 document.getElementById('listing-patients').appendChild(li);
             }else{
-                set_function = "changePage('patientprofile.html',"+patient_id+")";
-                set_function2 = "changePage('patientprofile.html',"+patient_id+")";
+                var li = document.createElement("li");
                 li.className = "list-group-item text-bold";
-                li.innerHTML = name+'<button class="pull-right btn-sm" onclick="'+set_function2+'">Adicionar Visita</button><button class="pull-right btn-sm" onclick="'+set_function+'">Ver Paciente</button>';
-                li.id = patient_id;
+                li.innerHTML = "Não possui pacientes cadastrados";
                 document.getElementById('listing-patients-user').appendChild(li);
             }
-        });
+        }
     });
 }
 
@@ -93,20 +107,42 @@ function patientData(){
         $('#patient_email').val(patient.email);
         $('#patient_phone').val(patient.phone);
         $('#patient_address').val(patient.address);
+        $('#seeHistory').val(p_id);
+
 
     });
 }
 
-function patientHistory(patient_id) {
-    patient_id = parseInt(patient_id, 10);
+function patientHistory() {
+    var patient_id = window.localStorage.getItem("patient");
+    patient_id = JSON.parse(patient_id);
+    patient_id = patient_id.p;
+    console.log(patient_id);
     getData(function(data){
         var patient = data.patients[patient_id];
+        console.log(patient);
+        $('#name').html(patient.info.name);
         var history = patient.visit_history;
-        history.forEach(function(value){
-            var h_item = value.history_id;
-            h_item = h_item.replace("H_", " ");
-            //HANDLE THE INTEMS IN PATIENTS
-        });
+        if(history.length == 0){
+            var li = document.createElement("li");
+            li.className = "list-group-item text-bold";
+            li.innerHTML = "Não possui visitas anteriores";
+            document.getElementById('listing-history').appendChild(li);
+            console.log(li);
+        }else{
+            history.forEach(function(value){
+                var h_item, set_function, li;
+                h_item = value.history_id;
+                h_item = h_item.replace("H_", " ");
+                li = document.createElement("li");
+                set_function = "changePage('historydetail.html',"+h_item+")";
+                li.className = "list-group-item text-bold";
+                li.innerHTML = h_item+'<button class="pull-right btn-sm"><button class="pull-right btn-sm" onclick="'+set_function+'">Ver Visitas</button>';
+                li.id = h_item;
+                document.getElementById('listing-history').appendChild(li);
+            });
+        }
+        
     });
 }
 
@@ -118,18 +154,3 @@ function patientHistoryData(history_id) {
         var patient_temp = history.patient_temperature;
     });
 }
-
-//FUNCAO IDENTICA A PATIENT LISTING
-// function userPatients(user_id) {
-//     user_id = parseInt(user_id, 10);
-//     getData(function(data){
-//         var user = data.users[user_id];
-//         var patients = user.patients;
-//        patients.forEach(function(value){
-//             var p_item = value.id;
-//             p_item = p_item.replace("P_", "");
-//             console.log(p_item);
-//             //HANDLE THE INTEMS IN PATIENTS
-//         });
-//     });
-// }

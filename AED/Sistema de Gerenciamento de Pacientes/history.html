@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="css/custom.css">
 </head>
 
-<body onload="patientProfile();">
+<body onload="patientHistory();">
 
   <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
     <a class="navbar-brand" href="main.html">SysMed</a>
@@ -52,31 +52,12 @@
 
   <div class="container info-content box-content center">
       <div class="row">
-        <div class="col-9"><h2 id="patient_name"></h2></div>
-        <button class="col-3 btn-outline" id="seeHistory" value="">Histórico</button>
+        <div class="col-9"><H1>Historico de <a id="name"></a></h1></div>
         </div>
         <hr>
-        <br>
-        <div class="container">
-
-            <label for="patient_id">ID do Paciente</label>
-            <input type="text" id="patient_id" class="form-control input-no-border" readonly>
-            <br>
-            <label for="patient_phone">Telefone</label>
-            <input type="text" id="patient_phone" class="form-control input-no-border" readonly>
-            <br>
-            <label for="patient_gender">Sexo</label>
-            <input type="text" id="patient_gender" class="form-control input-no-border" readonly>
-           <br>
-            <label for="patient_email">E-mail</label>
-            <input type="text" id="patient_email" class="form-control input-no-border" readonly>
-            <br>
-            <label for="patient_address">Endereço</label>
-            <input type="text" id="patient_address" class="form-control input-no-border" readonly>
-            <br>
-            <label for="patient_birth">Data de Nascimento</label>
-            <input type="date" id="patient_birth" class="form-control input-no-border" readonly>
-                
+        <div class="container" id="listing-patientsp-container">
+            <ul id="listing-history" class="list-group list-group-flush list-group-item-action">
+            </ul>
         </div>
       </div>
 
