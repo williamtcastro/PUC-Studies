@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="css/custom.css">
 </head>
 
-<body onload="mainPage();">
+<body onload="patientHistoryDataPage();">
 
   <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
     <a class="navbar-brand" href="main.html">SysMed</a>
@@ -23,10 +23,10 @@
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="main.html">Início <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="patients.html">Pacientes</a>
         </li>
         <li class="nav-item">
@@ -52,17 +52,34 @@
 
   <div class="container info-content box-content center">
       <div class="row">
-        <div class="col-9">Bem vindo, <H1><a id="name"></a></h1></div>
-          <div class="col-3">
-              <button class="btn btn-outline btn-block btn-mobile" id="newPatient">Adicionar Paciente</button>
-          </div>
+        <div class="col-9">Visita de <h2 id="patient_name"></h2></div>
         </div>
         <hr>
-        <h3>Pacientes</h3>
-        <br>
-        <div class="container" id="listing-patientsp-container">
-            <ul id="listing-patients" class="list-group list-group-flush list-group-item-action">
-            </ul>
+        <div class="container">
+
+            <label for="history_id">ID da Visita</label>
+            <input type="text" id="history_id" class="form-control input-no-border" readonly>
+            <br>
+            <label for="history_motif">Motivo da Visita</label>
+            <input type="text" id="history_motif" class="form-control input-no-border" readonly>
+            <br>
+            <label for="history_date">Data da Visita</label>
+            <input type="date" id="history_date" class="form-control input-no-border" readonly>
+            <br>
+            <label for="history_temp">Temperatura do Paciente</label>
+            <input type="text" id="history_temp" class="form-control input-no-border" readonly>
+            <br>
+            <label for="history_state">Condição do Paciente</label>
+            <input type="text" id="history_state" class="form-control input-no-border" readonly>
+           <br>
+            <label for="history_inflamation">Inflamação</label>
+            <input type="text" id="history_inflamation" class="form-control input-no-border" readonly>
+            <br>
+            <label for="history_fever">Febre</label>
+            <input type="text" id="history_fever" class="form-control input-no-border" readonly>
+            <br>
+            <label for="history_obs">Observações</label>
+            <textarea type="text" id="history_obs" class="form-control input-no-border" readonly></textarea>
         </div>
       </div>
 
@@ -84,7 +101,6 @@
   <script src="/js/search.js"></script>
   <script src="/js/jquery.maskedinput.js"></script>
   <script src="/js/aes.js"></script>
-  
 </body>
 
 </html>

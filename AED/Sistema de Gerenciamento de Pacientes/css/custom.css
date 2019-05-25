@@ -11,6 +11,7 @@
     border-radius: 7px;
     padding: 30px;
     margin-top: 10vh; 
+    margin-bottom: 5vh; 
     background-color: #ffffff;
 }
 
@@ -160,4 +161,9 @@ input{
         margin-top: 70px; 
         max-width: 400px;
     }
+
+    .btn-mobile{
+        font-size: 12px
+    }
+
 }

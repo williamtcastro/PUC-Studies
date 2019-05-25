@@ -45,9 +45,15 @@ function changePage(direction, id) {
             window.localStorage.setItem("patient", JSON.stringify(p_data));
             window.location.href = direction;
             break;
+
+        case "historydetail.html":
+            var p_data = { "h" : id};
+            window.localStorage.setItem("history", JSON.stringify(p_data));
+            window.location.href = direction;
+            break;
     
         default:
-        alert("NOP");
+            alert("Página em desenvolvimento!");
             break;
     }
 }
@@ -91,6 +97,24 @@ function patientHistory(){
     var logged = window.localStorage.getItem("logged");
     if(logged == 1){
         patientHistory();
+    }else{
+        changePage("index.html", null);
+    }
+}
+
+function patientHistoryDataPage(){
+    var logged = window.localStorage.getItem("logged");
+    if(logged == 1){
+        patientHistoryData();
+    }else{
+        changePage("index.html", null);
+    }
+}
+
+function newPatientHistoryPage(){
+    var logged = window.localStorage.getItem("logged");
+    if(logged == 1){
+        newPatientHistory();
     }else{
         changePage("index.html", null);
     }

@@ -60,9 +60,7 @@ function downloadDataBase() {
         reader.readAsText(data, "UTF-8");
         reader.onload = function (evt) {
             //AES + MD5
-            var decrypted = CryptoJS.AES.decrypt(evt.target.result, "PUCMINAS");
-            decrypted = decrypted.toString(CryptoJS.enc.Utf8);
-            window.localStorage.setItem("sistem", decrypted);
+            window.localStorage.setItem("sistem", evt.target.result);
             alert("Banco de dados importado com sucesso!");
         }
     }else{

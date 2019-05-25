@@ -11,7 +11,7 @@ $('#loginForm').submit(function () {
         var users = data.users;
         var user_id;
         for(key in users){
-            if((username == users[key].info.username) && (MD5(passwd) == users[key].info.passwd)){
+            if((username.toLowerCase() == users[key].info.username) && (MD5(passwd) == users[key].info.passwd)){
                 user_id = users[key].info.user_id;
                 user_id= user_id.replace("U_", "");
                 localStorage.setItem("logged", 1);
@@ -25,6 +25,12 @@ $('#loginForm').submit(function () {
 $('#logoff').click(function(){
     changePage("index.html", null);
 });
+
+$('#newHistory').click(function(){
+    var id = window.localStorage.getItem("patient");
+    id = JSON.parse(id);
+    changePage("newhistory.html", id.p);
+})
 
 function userData() {
     var user_d, user_id;
@@ -77,8 +83,9 @@ function patientListing() {
                 }else{
                     set_function = "changePage('patientprofile.html',"+patient_id+")";
                     set_function2 = "changePage('newhistory.html',"+patient_id+")";
+                    set_function3 = "changePage('history.html',"+patient_id+")";
                     li.className = "list-group-item text-bold";
-                    li.innerHTML = name+'<button class="pull-right btn-sm" onclick="'+set_function2+'">Adicionar Visita</button><button class="pull-right btn-sm" onclick="'+set_function+'">Ver Paciente</button>';
+                    li.innerHTML = name+'<button class="pull-right btn-sm" onclick="'+set_function2+'">Adicionar Visita</button><button class="pull-right btn-sm" onclick="'+set_function+'">Ver Paciente</button><button class="pull-right btn-sm" onclick="'+set_function3+'">Ver Visitas</button>';
                     li.id = patient_id;
                     document.getElementById('listing-patients-user').appendChild(li);
                 }
@@ -123,8 +130,8 @@ function patientHistory() {
     var patient_id = window.localStorage.getItem("patient");
     patient_id = JSON.parse(patient_id);
     patient_id = patient_id.p;
-    console.log(patient_id);
     getData(function(data){
+        console.log(data);
         var patient = data.patients[patient_id];
         console.log(patient);
         $('#name').html(patient.info.name);
@@ -136,14 +143,15 @@ function patientHistory() {
             document.getElementById('listing-history').appendChild(li);
             console.log(li);
         }else{
-            history.forEach(function(value){
+            Object.keys(history).forEach(function(value){
+                console.log(value);
                 var h_item, set_function, li;
-                h_item = value.history_id;
-                h_item = h_item.replace("H_", " ");
+                h_item = history[value].history_id;
+                h_item = h_item.replace("H_", "");
                 li = document.createElement("li");
                 set_function = "changePage('historydetail.html',"+h_item+")";
                 li.className = "list-group-item text-bold";
-                li.innerHTML = h_item+'<button class="pull-right btn-sm"><button class="pull-right btn-sm" onclick="'+set_function+'">Ver Visitas</button>';
+                li.innerHTML = "Visita: "+h_item+'<button class="pull-right btn-sm" onclick="'+set_function+'">Ver Visitas</button>';
                 li.id = h_item;
                 document.getElementById('listing-history').appendChild(li);
             });
@@ -152,11 +160,34 @@ function patientHistory() {
     });
 }
 
-function patientHistoryData(history_id) {
-    history_id = parseInt(history_id, 10);
+function patientHistoryData() {
+    var patient = localStorage.getItem("patient");
+    patient = JSON.parse(patient);
+    var history_id = window.localStorage.getItem("history");
+    history_id = JSON.parse(history_id);
+    history_id = history_id.h;
     getData(function(data){
         var history = data.patient_history[history_id];
-        var patient_id = history.patient_id;
-        var patient_temp = history.patient_temperature;
+        console.log(data)
+        $('#history_id').val(history_id);
+        $('#history_motif').val(history.motif);
+        $('#history_date').val(history.date);
+        $('#history_temp').val(history.temperature +" *C");
+        $('#history_state').val(history.state);
+        $('#history_inflamation').val(history.inflamation);
+        $('#history_fever').val(history.fever);
+        $('#history_obs').val(history.obs);
+        $('#patient_name').html(data.patients[patient.p].info.name);
+    });
+}
+
+function newPatientHistory() {
+    var patient_id = window.localStorage.getItem("patient");
+    patient_id = JSON.parse(patient_id);
+    patient_id = patient_id.p;
+    console.log(patient_id)
+    getData(function(data){
+        var name = data.patients[patient_id].info.name;
+        $('#patient_name').html("Paciente: " +name);
     });
 }

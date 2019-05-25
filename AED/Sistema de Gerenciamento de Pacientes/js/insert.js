@@ -40,6 +40,7 @@ $('#registerForm').submit(function () {
             // ENCRYPTED VERSION
             f_users = encryptToSave(f_users);
             localStorage.setItem("sistem", f_users);
+            localStorage.setItem("logged", 1);
             // localStorage.setItem("sistem", JSON.stringify(f_users));
             // localStorage.setItem("logged", 1);
             changePage("main.html", n_id);
@@ -125,7 +126,20 @@ function addPatientToUser(user_id, patient_id) {
     });
 }
 
-function createPatientHistory(patient_id) {
+$('#newHistoryForm').submit(function(){
+// function createPatientHistory() {
+    var patient_id = window.localStorage.getItem("patient");
+    patient_id = JSON.parse(patient_id);
+    patient_id = patient_id.p;
+    var patient_temperature, patient_state, patient_inflamation, patient_fever, patient_visit_date, patient_visit_obs, patient_motif;
+    patient_motif = $('#patient_motif').val();
+    patient_temperature = $('#patient_temp').val();
+    patient_state = $('#patient_state').val();
+    patient_inflamation = $('#patient_inflamation').val();
+    patient_fever = $('#patient_fever').val();
+    patient_visit_date = $('#patient_visit_date').val();
+    patient_visit_obs = $('#patient_visit_obs').val();
+
     var f_data, patients_history, f_patients_history, n_data, n_id = 0;
     getData(function(data){
         for(let i=0; data.patient_history[i] != undefined; i++){
@@ -134,8 +148,13 @@ function createPatientHistory(patient_id) {
         n_data = {
             n_id : {
                 "patient_id" : "P_" + patient_id,
-                "patient_temperature" : "12",
-                "patient_status" : "STATUS",
+                "motif" : patient_motif,
+                "temperature" : patient_temperature,
+                "state" : patient_state,
+                "inflamation" : patient_inflamation,
+                "fever" : patient_fever,
+                "date" : patient_visit_date,
+                "obs" : patient_visit_obs
             }
         }
         n_data = idfyString(n_data, n_id);
@@ -147,8 +166,9 @@ function createPatientHistory(patient_id) {
         localStorage.setItem("sistem", f_patients_history);
         // localStorage.setItem("sistem", JSON.stringify(f_patients_history));
         addHistoryToPatient(patient_id, n_id);
-    });
-}
+    }); 
+    return false;
+});
 
 function addHistoryToPatient(patient_id, patient_history_id){
     var f_data, patient, f_patient, n_data;
@@ -170,4 +190,5 @@ function addHistoryToPatient(patient_id, patient_history_id){
         localStorage.setItem("sistem", f_patients_history);
         // localStorage.setItem("sistem", JSON.stringify(f_patients_history));
     });
+    changePage("historydetail.html", patient_history_id);
 }
