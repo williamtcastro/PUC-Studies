@@ -1,0 +1,6 @@
+Oi William tudo bem 
+
+Estou lendo o arquivo normalmente
+
+Vamos implementar agora o codigo de contagem de vogais usando um struct ou array ???
+Sei la como farei isso agora, porem podemos tentar.....
