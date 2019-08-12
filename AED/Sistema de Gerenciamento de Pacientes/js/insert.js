@@ -52,8 +52,9 @@ $('#registerForm').submit(function () {
 });
 
 $('#newPatientForm').submit(function(){
-    var patient_name, patient_phone, patient_email, patient_birth, patient_address, patient_gender;
+    var patient_name, patient_phone, patient_email, patient_birth, patient_address, patient_gender, patient_document;
     patient_name = $('#patient_name').val();
+    patient_document = $('#patient_document').val();
     patient_phone = $('#patient_phone').val();
     patient_email = $('#patient_email').val();
     patient_birth = $('#patient_birth').val();
@@ -72,6 +73,7 @@ $('#newPatientForm').submit(function(){
             "info": {
               "name" : patient_name,
               "birth" : patient_birth,
+              "document" : patient_document,
               "gender" : patient_gender,
               "phone" : patient_phone,
               "address" : patient_address,

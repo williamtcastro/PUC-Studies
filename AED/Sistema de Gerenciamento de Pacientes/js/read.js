@@ -116,6 +116,7 @@ function patientData(){
         var p_id = patient.patient_id.replace("P_", "");
         $('#patient_id').val(p_id);
         $('#patient_gender').val(patient.gender);
+        $('#patient_document').val(patient.document);
         $('#patient_birth').val(patient.birth);
         $('#patient_email').val(patient.email);
         $('#patient_phone').val(patient.phone);

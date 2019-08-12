@@ -24,9 +24,9 @@ while True:
     name = str(input("Digite o nome do arquivo: "))
     print(("-"*lines) + "\n")
 
-    if name == 'exit' or 'EXIT':
-        os.system(clear)
-        exit(0)
+    # if name == 'exit' or 'EXIT':
+    #     os.system(clear)
+    #     exit(0)
 
     # LIMPANDO PROMPT
     os.system(clear)

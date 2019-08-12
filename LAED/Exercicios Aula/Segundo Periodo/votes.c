@@ -155,7 +155,7 @@ void showResults(){
 }
 
 void candidateTotalVotes(){
-    unsigned int votes_total = 0;
+    int votes_total = 0;
     unsigned int candidate;
     printf("Digite o numero do candidato para ver seu total de votos >>> ");
     scanf("%d", &candidate);
@@ -166,6 +166,7 @@ void candidateTotalVotes(){
             for (size_t i_urna = 0; i_urna < URNAS_QUANT; i_urna++){
                 for (size_t i_vote = 0; i_vote < MAX_VOTES; i_vote++){
                     if (candidate == urnas[i_urna][i_vote] ){
+                        printf("\nVOTES\n");
                         votes_total++;
                     }
                 }
